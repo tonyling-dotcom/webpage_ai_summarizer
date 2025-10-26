@@ -1,0 +1,68 @@
+# Node modules (will be installed in container)
+node_modules/
+npm-debug.log
+
+# Build output (will be created in container)
+build/
+dist/
+*.zip
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Docker files
+Dockerfile
+Dockerfile.prod
+docker-compose.yml
+.dockerignore
+
+# Environment variables
+.env
+.env.*
+*.env
+secrets.*.js
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+LICENSE
+*.md
+
+# Logs
+logs/
+*.log
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Chrome extension packaging
+*.crx
+*.pem
+key.pem
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Misc
+.cache/
+

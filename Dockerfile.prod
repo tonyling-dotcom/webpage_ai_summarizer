@@ -1,0 +1,29 @@
+# Production Dockerfile - builds the extension
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci --only=production
+
+# Copy source code
+COPY . .
+
+# Build the extension
+RUN npm run build
+
+# Use a minimal image for the final stage
+FROM alpine:latest
+
+WORKDIR /app
+
+# Copy only the built files
+COPY --from=builder /app/build ./build
+COPY --from=builder /app/README.md ./
+
+# The build folder contains the complete extension
+CMD ["echo", "Extension built successfully! Check the ./build folder"]
+
